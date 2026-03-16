@@ -3,46 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Redirecionamento</title>
+    <title>Surpresa Felina</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #1a1a1a;
-            font-family: Arial, sans-serif;
-        }
-
-        .btn-surpresa {
-            padding: 20px 40px;
-            font-size: 20px;
-            font-weight: bold;
+            background-color: #2c3e50;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
-            background-color: #e74c3c;
+        }
+
+        #btn-revelar {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(45deg, #ff4b2b, #ff416c);
             border: none;
-            border-radius: 50px;
+            border-radius: 8px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
-            transition: transform 0.2s, background-color 0.2s;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        .btn-surpresa:hover {
-            background-color: #c0392b;
-            transform: scale(1.05);
+        #btn-revelar:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
         }
 
-        .btn-surpresa:active {
-            transform: scale(0.95);
+        #container-foto {
+            margin-top: 30px;
+            display: none; /* Escondido por padrão */
+            text-align: center;
+        }
+
+        img {
+            max-width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 5px solid white;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <button class="btn-surpresa" onclick="window.location.href='https://www.google.com'">
-        NÃO CLIQUE AQUI!
-    </button>
+    <button id="btn-revelar" onclick="mostrarGato()">CLIQUE PARA UM CARINHO</button>
+
+    <div id="container-foto" class="fade-in">
+        <p>🐈 "Humano, você interrompeu meu sono pra isso?"</p>
+        <img id="foto-gato" src="https://via.placeholder.com/300x300?text=Sua+Imagem+Aqui" alt="Gato rebelde">
+    </div>
+
+    <script>
+        function mostrarGato() {
+            const container = document.getElementById('container-foto');
+            const botao = document.getElementById('btn-revelar');
+            
+            // Troca o link abaixo pelo link real da foto do gato
+            const linkDaFoto = "https://i.pinimg.com/originals/ae/f7/8c/aef78c95029e061033230a13ef2b7752.jpg"; 
+            
+            document.getElementById('foto-gato').src = linkDaFoto;
+            container.style.display = 'block';
+            botao.innerText = "OPS...";
+            botao.style.background = "#7f8c8d";
+        }
+    </script>
 
 </body>
 </html>
