@@ -3,84 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surpresa do Gato</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #121212;
-            font-family: 'Arial', sans-serif;
-            color: white;
-            overflow: hidden;
-        }
-
-        #btn-revelar {
-            padding: 18px 35px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #fff;
-            background: #e74c3c;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(231, 76, 60, 0.5);
-            z-index: 10;
-        }
-
-        #btn-revelar:hover {
-            transform: scale(1.1) rotate(-2deg);
-            background-color: #ff5e4d;
-        }
-
-        #container-foto {
-            display: none;
-            text-align: center;
-            position: absolute;
-            animation: surgir 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        img {
-            max-width: 400px;
-            width: 90%;
-            border-radius: 20px;
-            border: 8px solid #fff;
-            box-shadow: 0 0 50px rgba(0,0,0,0.8);
-        }
-
-        h2 {
-            margin-top: 15px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-        }
-
-        @keyframes surgir {
-            from { transform: scale(0) rotate(-20deg); opacity: 0; }
-            to { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-    </style>
+    <title>Portal de Acesso</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <button id="btn-revelar" onclick="revelarGato()">NÃO CLIQUE AQUI!</button>
-
-    <div id="container-foto">
-        <img src="https://i.pinimg.com/originals/ae/f7/8c/aef78c95029e061033230a13ef2b7752.jpg" alt="Gato Malcriado">
-        <h2>"Tava ocupado, humano!" 🐾</h2>
+    <div class="sala">
+        <div class="parede"></div>
+        <div class="chao"></div>
+        <div class="luminaria"></div>
+        <div class="luz-cone"></div>
+        <div class="poltrona">
+            <div class="encosto"></div>
+            <div class="assento"></div>
+        </div>
     </div>
 
-    <script>
-        function revelarGato() {
-            const btn = document.getElementById('btn-revelar');
-            const container = document.getElementById('container-foto');
-            
-            btn.style.display = 'none';
-            container.style.display = 'block';
-        }
-    </script>
+    <div class="container">
+        <form id="form-cadastro">
+            <h2>MEMBER ACCESS</h2>
+            <p>Insira seus dados para prosseguir para a plataforma.</p>
 
+            <div class="input-group">
+                <label>Nome Completo</label>
+                <input type="text" id="nome" required>
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>CPF</label>
+                    <input type="text" id="cpf" placeholder="000.000.000-00" required>
+                </div>
+                <div class="input-group">
+                    <label>Nascimento</label>
+                    <input type="date" id="nascimento" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>E-mail</label>
+                <input type="email" id="email" required>
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>Gênero</label>
+                    <select id="genero" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                        <option value="Trans">Transgênero</option>
+                        <option value="Neutro">Gênero Neutro</option>
+                        <option value="Homossexual">Homossexual</option>
+                        <option value="Therian">Therian</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Telefone</label>
+                    <input type="tel" id="telefone">
+                </div>
+            </div>
+
+            <button type="submit">ENTRAR</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
