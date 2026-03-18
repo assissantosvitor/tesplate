@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 body {
@@ -15,93 +15,110 @@ body {
     position: relative;
 }
 
-/* Detalhes Brancos no Fundo */
+/* Elementos de Fundo */
 .bg-details .circle {
     position: absolute;
     background: #f9f9f9;
     border-radius: 50%;
     z-index: -1;
+    border: 1px solid #f0f0f0;
 }
-
-.one { width: 400px; height: 400px; top: -100px; left: -100px; border: 1px solid #f0f0f0; }
-.two { width: 300px; height: 300px; bottom: -50px; right: -50px; background: #fcfcfc; }
-.three { 
-    position: absolute; width: 100%; height: 100%; 
-    background-image: radial-gradient(#f0f0f0 1px, transparent 1px);
-    background-size: 30px 30px;
-    opacity: 0.5;
+.one { width: 500px; height: 500px; top: -150px; left: -150px; }
+.two { width: 300px; height: 300px; bottom: -50px; right: -50px; }
+.dots {
+    position: absolute; width: 100%; height: 100%;
+    background-image: radial-gradient(#eeeeee 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
     z-index: -2;
+    opacity: 0.6;
 }
 
-/* Container do Formulário */
+/* Container */
 .container {
     background: #ffffff;
-    padding: 40px;
-    width: 100%;
-    max-width: 450px;
+    padding: 45px;
+    width: 90%;
+    max-width: 480px;
+    border-radius: 4px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.06);
+    border: 1px solid #f2f2f2;
     text-align: center;
-    border: 1px solid #efefef;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     z-index: 10;
 }
 
 .logo {
-    font-size: 30px;
+    color: #5d2d91; /* Roxo Netshoes */
+    font-size: 32px;
     font-weight: 900;
-    letter-spacing: -2px;
+    font-style: italic;
     margin-bottom: 20px;
+    letter-spacing: -1px;
 }
 
 h2 {
-    font-size: 22px;
-    font-weight: 800;
-    margin-bottom: 10px;
-    letter-spacing: 0.5px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #111;
 }
 
 p {
     font-size: 14px;
-    color: #757575;
+    color: #777;
     margin-bottom: 30px;
-    line-height: 1.5;
 }
 
-/* Inputs Estilo Nike */
-input, select {
-    width: 100%;
-    padding: 12px 15px;
+/* Inputs */
+.input-group, .row {
     margin-bottom: 15px;
-    border: 1px solid #e5e5e5;
-    border-radius: 3px;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s;
-}
-
-input:focus, select:focus {
-    border-color: #111;
 }
 
 .row {
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 
-/* Botão de Cadastro */
+input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 14px;
+    background: #fff;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    border-color: #5d2d91;
+    box-shadow: 0 0 0 3px rgba(93, 45, 145, 0.1);
+}
+
+/* Botão */
 button {
     width: 100%;
-    padding: 15px;
-    background-color: #111;
-    color: #fff;
+    padding: 16px;
+    background-color: #5d2d91;
+    color: #ffffff;
     border: none;
-    border-radius: 3px;
-    font-weight: bold;
+    border-radius: 4px;
+    font-weight: 700;
     font-size: 15px;
     cursor: pointer;
-    margin-top: 10px;
-    transition: opacity 0.2s;
+    margin-top: 15px;
+    text-transform: uppercase;
+    transition: background 0.3s ease;
 }
 
+button:hover {
+    background-color: #4a2375;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 480px) {
+    .row { flex-direction: column; gap: 15px; }
+    .container { padding: 30px 20px; }
+}
 button:hover {
     opacity: 0.8;
 }
